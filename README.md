@@ -6,7 +6,7 @@ This has the advantage that you can easy delete images and you need no additiona
 ```gradle
 dependencies {
     ...
-    compile 'TODO'
+    compile 'de.wackernagel.android:sidekick-medias:1.0.0'
     ...
 }
 ```
