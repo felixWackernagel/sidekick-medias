@@ -29,10 +29,17 @@ Medias.of( this ).fromDocument().result( resultInfo );
 Medias.of( this ).getMediasLoader();
 Medias.of( this ).getMedias();
 Medias.of( this ).getMediasDirectory();
+Medias.of( this ).share( myImage );
 
 ```
 
 ## How it works
+* A camera image or a selected image is stored inside the private application directory. So we need no storage permission.
+* Each image action is delegated to another device application. So we need no camera permission.
+* No media storage is involved which means you can see the camera or picked selected image in the device gallery.
+* Under the hood is a FileProvider which allowes access to the images. This comes automatically by manifest merging.
+* If you want to delete a image just do File#delete().
+* By using the share-Function it is possible that nothing happens by the selected sharing application. The reason is that the used application for sharing doesn't use recommendat FileProvider strategy to access external files.
 
 ## For Development
 Following gradle task can be executed:
